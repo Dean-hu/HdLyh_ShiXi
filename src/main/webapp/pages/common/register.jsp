@@ -40,28 +40,25 @@
         <div class="layui-form login-form">
             <form class="layui-form" action="">
                 <div class="layui-form-item logo-title">
-                    <h1>管理人员后台登录</h1>
+                    <h1>登录</h1>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-icon layui-icon-username" for="manager_username"></label>
-                    <input type="text" name="username" lay-verify="required|account" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" value="admin">
+                    <input type="text" name="username" lay-verify="required|account" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" >
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-password" for="manager_password"></label>
-                    <input type="password" name="password" lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input" value="123456">
+                    <label class="layui-icon layui-icon-password" for="manager_password1"></label>
+                    <input type="password" name="password" lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input" >
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-vercode" for="captcha"></label>
-                    <input type="text" name="captcha" lay-verify="required|captcha" placeholder="图形验证码" autocomplete="off" class="layui-input verification captcha" value="xszg">
-                    <div class="captcha-img">
-                        <img id="captchaPic" src="../../images/captcha.jpg">
-                    </div>
+                    <label class="layui-icon layui-icon-password" for="manager_password2"></label>
+                    <input type="password" name="password" lay-verify="required|password" placeholder="再次输入密码" autocomplete="off" class="layui-input" >
                 </div>
                 <div class="layui-form-item">
                     <input type="checkbox" name="rememberMe" value="true" lay-skin="primary" title="记住密码">
                 </div>
                 <div class="layui-form-item">
-                    <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" lay-filter="login">登 入</button>
+                    <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" lay-filter="login">注 册</button>
                 </div>
             </form>
         </div>
@@ -102,7 +99,7 @@
                 return false;
             }
             layer.msg('登录成功', function () {
-                window.location = '../common/home.jsp';
+                window.location = 'home.jsp';
             });
             return false;
         });
