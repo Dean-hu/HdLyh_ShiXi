@@ -9,26 +9,29 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 public class UserController {
     @Autowired
     UserService userService;
     @RequestMapping("/userRegister.action")
-    public ModelAndView createUser(HttpServletRequest request , HttpServletResponse response){
-        ModelAndView modelAndView =new ModelAndView();
+    public void  createUser(HttpServletRequest request , HttpServletResponse response) throws IOException {
+
         String user_name = request.getParameter("user_name");
         String user_password  =request.getParameter("user_password");
+        System.out.println(user_name+user_password);
         User user = new User(user_name,user_password,0);
         /*如果该用户名未被使用*/
-        if(userService.findUserByName(user_name)!=null)
+        if(userService.findUserByName(user_name)==null)
         {
-            modelAndView.setViewName("login.jsp");
+              userService.createUser(user);
+              request.getSession().setAttribute("msg","注册成功");
+              response.sendRedirect("./pages/common/login.jsp");
         }else{/*该用户名被使用*/
-            modelAndView.addObject("msg","该用户名已被使用，请重试");
-            modelAndView.setViewName("register.jsp");
+            request.getSession().setAttribute("msg","用户名已被占用");
+            response.sendRedirect("./pages/common/register.jsp");
         }
-        return modelAndView;
     }
 
 

@@ -1,5 +1,5 @@
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 
 <!DOCTYPE html>
 <html>
@@ -35,6 +35,11 @@
     </style>
 </head>
 <body>
+<center>
+ <h6>
+  ${sessionScope.msg}
+</h6>
+</center>
 <div class="layui-container">
     <div class="admin-login-background">
         <div class="layui-form login-form">
@@ -44,10 +49,10 @@
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-icon layui-icon-username" for="username"></label>
-                    <input id="username" type="text" name="username" lay-verify="required|account" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" value="admin">
+                    <input  type="text" name="username" lay-verify="required|account" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" value="admin">
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-password" for="manager_password"></label>
+                    <label class="layui-icon layui-icon-password" for="password"></label>
                     <input type="password" name="password" lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input" value="123456">
                 </div>
                 <div class="layui-form-item">
