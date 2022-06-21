@@ -1,3 +1,4 @@
+import com.hdlyh.mapper.ProjectMapper;
 import com.hdlyh.mapper.UserMapper;
 import com.hdlyh.po.Project;
 import com.hdlyh.po.User;
@@ -10,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,14 +36,14 @@ public class test {
     public void testFindUserByName(){
         System.out.println(userService.findUserByName("zhangsan"));
     }
-
+    /*添加项目测试*/
     @Test
     public void addProject(){
-        Date date=new Date();
-        date.getTime();
-        /*Project project =new Project("苗族古歌","田锦锋","123456","传承人信息", );*/
-        System.out.println("&&&&");
+        Date date = new Date();
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        System.out.println(dateFormat.format(date));
+        Project project =new Project("苗族古歌","田锦锋","123456","传承人信息","sdfsdfsdfsd",date,1,0,null,0,null);
+        projectService.addProject(project);
     }
-
 
 }
