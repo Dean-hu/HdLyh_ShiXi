@@ -27,7 +27,7 @@ public class test {
 
     @Test
     public void testFindUserById(){
-        System.out.println(userService.findUserById(1));
+        System.out.println(userService.findUserById(1001));
     }
 
     @Test
@@ -40,6 +40,7 @@ public class test {
         Date date=new Date();
         date.getTime();
         /*Project project =new Project("苗族古歌","田锦锋","123456","传承人信息", );*/
+        System.out.println("&&&&");
     }
 
 

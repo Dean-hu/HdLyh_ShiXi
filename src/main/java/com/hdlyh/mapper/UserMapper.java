@@ -15,4 +15,7 @@ public interface UserMapper {
     User findUserByName(String user_name);
     @Insert("insert into user(user_name, user_password,user_level) values(#{user_name},#{user_password},#{user_level})")
     int createUser(User user);
+
+
+
 }
