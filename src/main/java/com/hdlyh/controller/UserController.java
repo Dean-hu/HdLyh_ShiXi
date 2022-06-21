@@ -10,9 +10,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
     @Autowired
     UserService userService;
-    @RequestMapping("/creatUser.action")
+    @RequestMapping("/userRegister.action")
     public ModelAndView createUser(){
         ModelAndView modelAndView =new ModelAndView();
         return modelAndView;
     }
+/*    @RequestMapping("/userLogin.action")
+    public ModelAndView createUser(){
+        ModelAndView modelAndView =new ModelAndView();
+        return modelAndView;
+    }*/
 }
