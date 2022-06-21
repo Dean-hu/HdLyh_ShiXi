@@ -102,7 +102,7 @@
                 return false;
             }
             layer.msg('登录成功', function () {
-                window.location = '../common/home.jsp';
+                window.location = 'home.jsp';
             });
             return false;
         });

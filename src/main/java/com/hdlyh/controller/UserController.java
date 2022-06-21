@@ -1,5 +1,6 @@
 package com.hdlyh.controller;
 
+import com.hdlyh.po.User;
 import com.hdlyh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,14 +11,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
     @Autowired
     UserService userService;
+
     @RequestMapping("/userRegister.action")
+    public ModelAndView createUser(User user){
+        ModelAndView modelAndView =new ModelAndView();
+        return modelAndView;
+    }
+
+    @RequestMapping("/userLogin.action")
     public ModelAndView createUser(){
         ModelAndView modelAndView =new ModelAndView();
         return modelAndView;
     }
-/*    @RequestMapping("/userLogin.action")
-    public ModelAndView createUser(){
-        ModelAndView modelAndView =new ModelAndView();
-        return modelAndView;
-    }*/
 }

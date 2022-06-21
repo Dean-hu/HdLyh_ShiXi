@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Repository
 public interface UserMapper {
-
     @Select("select * from user where user_id = #{user_id};")
     User findUserById(int user_id);
     @Select("select * from user where user_name = #{user_name};")
