@@ -5,14 +5,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>注册</title>
+    <title>后台管理-登陆</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
     <!--[if lt IE 9]>
     <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
@@ -35,39 +35,46 @@
     </style>
 </head>
 <body>
-<h6>${sessionScope.msg}</h6>
+<center>
+ <h6>
+  ${sessionScope.msg}
+</h6>
+</center>
 <div class="layui-container">
     <div class="admin-login-background">
         <div class="layui-form login-form">
-            <form class="layui-form" action="../../userRegister.action" method="post">
+            <form class="layui-form" action="/userLogin.action">
                 <div class="layui-form-item logo-title">
-                    <h1>注册</h1>
+                    <h1>登录</h1>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-icon layui-icon-username" for="username"></label>
-                    <input type="text" name="user_name" lay-verify="required|account" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" >
+                    <input  type="text" name="username" lay-verify="required|account" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" value="admin">
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-password" for="password1"></label>
-                    <input type="password" name="user_password" lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input" >
+                    <label class="layui-icon layui-icon-password" for="password"></label>
+                    <input type="password" name="password" lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input" value="123456">
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-password" for="password2"></label>
-                    <input type="password" name="password2" lay-verify="required|password" placeholder="再次输入密码" autocomplete="off" class="layui-input" >
+                    <label class="layui-icon layui-icon-vercode" for="captcha"></label>
+                    <input type="text" name="captcha" lay-verify="required|captcha" placeholder="图形验证码" autocomplete="off" class="layui-input verification captcha" value="xszg">
+                    <div class="captcha-img">
+                        <img id="captchaPic" src="../images/captcha.jpg">
+                    </div>
                 </div>
                 <div class="layui-form-item">
                     <input type="checkbox" name="rememberMe" value="true" lay-skin="primary" title="记住密码">
                 </div>
                 <div class="layui-form-item">
-                    <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" type="submit" >注 册</button>
+                    <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" lay-filter="login">登 入</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script src="../../lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
-<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
-<script src="../../lib/jq-module/jquery.particleground.min.js" charset="utf-8"></script>
+<script src="../lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../lib/jq-module/jquery.particleground.min.js" charset="utf-8"></script>
 <script>
     layui.use(['form'], function () {
         var form = layui.form,
@@ -84,14 +91,14 @@
             });
         });
 
-        // 进行注册操作
+        // 进行登录操作
         form.on('submit(login)', function (data) {
             data = data.field;
             if (data.username == '') {
                 layer.msg('用户名不能为空');
                 return false;
             }
-            if (data.password == '' ||data.password2 == '') {
+            if (data.password == '') {
                 layer.msg('密码不能为空');
                 return false;
             }
@@ -99,12 +106,8 @@
                 layer.msg('验证码不能为空');
                 return false;
             }
-            if(data.password!=data.password2){
-                layer.msg("两次密码不一致");
-                return false;
-            }
-            layer.msg('注册成功', function () {
-                window.location = '../../userRegister.action';
+            layer.msg('登录成功', function () {
+                window.location = 'home.jsp';
             });
             return false;
         });

@@ -10,14 +10,14 @@
 <head>
     <title>首页</title>
 </head>
-<body background="../../images/home_background.jpg">
+<body background="../images/home_background.jpg">
 <div>
     <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">百搭按钮</button>
 
-    <a href="./pages/common/register.jsp" id="userRegister">注册</a>
+    <a href="./pages/register.jsp" id="userRegister">注册</a>
 </div>
 <div>
-<a href="./pages/common/login.jsp" id="userLogin">登录</a>
+<a href="./pages/login.jsp" id="userLogin">登录</a>
 
 </div>
 </body>

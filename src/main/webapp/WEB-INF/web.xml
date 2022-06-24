@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
     <welcome-file-list>
-        <welcome-file>/pages/common/home.jsp</welcome-file>
+        <welcome-file>/pages/home.jsp</welcome-file>
     </welcome-file-list>
     <display-name>Archetype Created Web Application</display-name>
 
