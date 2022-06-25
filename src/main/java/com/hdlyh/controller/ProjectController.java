@@ -6,6 +6,7 @@ import com.hdlyh.tools.json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.w3c.dom.ls.LSOutput;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,9 +27,10 @@ public class ProjectController {
         response.getWriter().write(tojson);
     }
     @RequestMapping("/addProject.action")
-    public  void addProject(HttpServletRequest request , HttpServletResponse response){
-        System.out.println("sdfgdgfdgdfgfdgdf");
-        System.out.println(request.getParameter("phone"));
+    public  String addProject(HttpServletRequest request , HttpServletResponse response){
+        System.out.println(request.getParameter("username"));
+
+        return "./pages/visitorProject.jsp";
     }
 
 }

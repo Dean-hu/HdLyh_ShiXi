@@ -27,10 +27,10 @@ public class UserController {
         {
               userService.createUser(user);
               request.getSession().setAttribute("msg","注册成功");
-              response.sendRedirect("./pages/common/login.jsp");
+              response.sendRedirect("./pages/login.jsp");
         }else{/*该用户名被使用*/
             request.getSession().setAttribute("msg","用户名已被占用");
-            response.sendRedirect("./pages/common/register.jsp");
+            response.sendRedirect("./pages/register.jsp");
         }
     }
 
