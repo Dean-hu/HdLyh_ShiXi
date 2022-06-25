@@ -13,4 +13,6 @@ public interface ProjectService {
     List<Project> findAllProject();
 
     int addProject(Project project);
+
+    List<Project> findMyProject(int user_id);
 }

@@ -18,4 +18,6 @@ public interface ProjectMapper {
       List<Project> findAllProject();
       //添加项目
       int addProject(Project project);
+      @Select("select * from project where project_user_id  = #{user_id}")
+      List<Project> findMyProject(int user_id);
 }

@@ -77,7 +77,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '../findAllProject.action',
+            url: '../findMyProject.action',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',

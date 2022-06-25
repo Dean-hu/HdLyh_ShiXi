@@ -27,4 +27,9 @@ public class ProjectServiceImpl implements ProjectService {
     public int addProject(Project project) {
         return projectMapper.addProject(project);
     }
+
+    @Override
+    public List<Project> findMyProject(int user_id) {
+        return projectMapper.findMyProject(user_id);
+    }
 }

@@ -28,22 +28,19 @@
         <div class="layui-form login-form">
             <form class="layui-form" action="../addProject.action" method="post">
                 <div class="layui-form-item logo-title">
-                    <h1>注册</h1>
+                    <h1>申请新项目</h1>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-username" for="username"></label>
-                    <input type="text" name="username" lay-verify="required|account" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" >
+                    <input type="text" name="project_name" lay-verify="required|account" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" >
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-password" for="password1"></label>
-                    <input type="password" name="password1" lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input" >
+                    <input type="password" name="project_owner" lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input" >
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-password" for="password2"></label>
-                    <input type="password" name="password2" lay-verify="required|password" placeholder="再次输入密码" autocomplete="off" class="layui-input" >
+                    <input type="password" name="project_tel" lay-verify="required|password" placeholder="再次输入密码" autocomplete="off" class="layui-input" >
                 </div>
                 <div class="layui-form-item">
-                    <input type="checkbox" name="rememberMe" value="true" lay-skin="primary" title="记住密码">
+                    <input type="text" name="project_owner_info" lay-verify="required|account" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" >
                 </div>
                 <div class="layui-form-item">
                     <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" type="submit" >注 册</button>
@@ -64,24 +61,24 @@
         // 进行注册操作
         form.on('submit(login)', function (data) {
             data = data.field;
-            if (data.username == '') {
-                layer.msg('用户名不能为空');
+            if (data.project_name == '') {
+                layer.msg('项目名不能为空');
                 return false;
             }
-            if (data.password == '' ||data.password2 == '') {
-                layer.msg('密码不能为空');
+            if (data.project_owner == '') {
+                layer.msg('项目拥有人不能为空');
                 return false;
             }
-            if (data.captcha == '') {
-                layer.msg('验证码不能为空');
+            if (data.project_tel == '') {
+                layer.msg('项目联系人不能为空');
                 return false;
             }
-            if(data.password!=data.password2){
-                layer.msg("两次密码不一致");
+            if(data.project_owner_info==""){
+                layer.msg("项目拥有人信息不能为空");
                 return false;
             }
-            layer.msg('注册成功', function () {
-                window.location = '../addProject.action';
+            layer.msg('申请信息已提交，等待审批', function () {
+                window.location = './myProject.jsp';
             });
             return false;
         });
