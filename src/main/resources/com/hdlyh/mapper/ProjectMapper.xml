@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--此文件用于将java代码中操作数据库的方法转换为对应的sql语句-->
+<mapper namespace="com.hdlyh.mapper.ProjectMapper">
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="project_name!=null and project_name !=''">project_name,</if>
+            <if test="project_owner!=null and project_owner!=''">project_owner,</if>
+            <if test="project_tel!=null and project_tel!=null">project_tel,</if>
+            <if test="project_owner_info!=null and project_owner_info!=''">project_owner_info,</if>
+            <if test="project_info!=null and project_info!=''">project_info,</if>
+            <if test="project_apply_time!=null and project_apply_time!=''">project_apply_time,</if>
+            <if test="project_user_id and project_user_id!=''">project_user_id,</if>
+            <if test="project_check1!=null and project_Check1!=''">project_Check1,</if>
+            <if test="project_check_time1!=null and project_Check_time1!=''">project_Check_time1,</if>
+            <if test="project_check2!=null and project_Check2!=''">project_Check2,</if>
+            <if test="project_check_time2!=null and project_Check_time2,!=''">project_Check_time2,</if>
+        </trim>
+    </sql>
+    <sql id="value">
+        <trim suffixOverrides=",">
+            <if test="project_name!=null">#{project_name},</if>
+            <if test="project_owner!=null">#{project_owner},</if>
+            <if test="project_tel!=null">#{project_tel},</if>
+            <if test="project_owner_info!=null">#{project_owner_info},</if>
+            <if test="project_info!=null">#{project_info},</if>
+            <if test="project_apply_time!=null">#{project_apply_time},</if>
+            <if test="project_user_id">#{project_user_id},</if>
+            <if test="project_check1!=null">#{project_check1},</if>
+            <if test="project_check_time1!=null">#{project_check_time1},</if>
+            <if test="project_check2!=null">#{project_check2},</if>
+            <if test="project_check_time2!=null">#{project_check_time2},</if>
+        </trim>
+    </sql>
+    <insert id="addProject" useGeneratedKeys="true" keyProperty="project_id">
+        insert into project (<include refid="key"/>) values (<include refid="value"/>)
+    </insert>
+</mapper>

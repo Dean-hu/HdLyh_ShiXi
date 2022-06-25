@@ -44,7 +44,8 @@ public class test {
         Date date = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
         System.out.println(dateFormat.format(date));
-        Project project =new Project("苗族古歌","田锦锋","123456","传承人信息","sdfsdfsdfsd",date,1,0,null,0,null);
+        Project project =new Project("苗族古歌","田锦锋","123456","传承人信息",
+                "sdfsdfsdfsd",date,1,0,null,0,null);
         projectService.addProject(project);
     }
       @Test

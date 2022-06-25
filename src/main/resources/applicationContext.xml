@@ -28,7 +28,7 @@
         <property name="typeAliasesPackage" value="com.hdlyh.po"/>
     </bean>
 
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <bean id="mapper" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.hdlyh.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
@@ -38,4 +38,6 @@
     </bean>
     <context:component-scan base-package="com.hdlyh"/>
     <tx:annotation-driven transaction-manager="tx"/>
+
 </beans>
+

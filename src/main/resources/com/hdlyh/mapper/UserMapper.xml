@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--此文件用于将java代码中操作数据库的方法转换为对应的sql语句-->
+<mapper namespace="com.hdlyh.mapper.UserMapper">
+    <select id="selectAllUser" resultType="com.hdlyh.po.User">
+        select *
+        from User;
+    </select>
+    <update id="changeUserInfo">
+        update USER
+        <set>
+            <if test="user_name != null and user_name !=''">
+                user_name = #{user_name},
+            </if>
+            <if test="user_password != null and user_password !=''">
+                user_password = #{user_password}
+            </if>
+        </set>
+        where user_id = #{user_id};
+    </update>
+
+</mapper>
