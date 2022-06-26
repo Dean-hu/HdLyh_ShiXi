@@ -163,7 +163,7 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '../pages/edit.jsp',
+                    content: '../pages/edit_project.jsp',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

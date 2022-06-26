@@ -43,6 +43,7 @@ public class UserController {
         String user_password  =request.getParameter("user_password");
         System.out.println(user_name+user_password);
         User user = userService.findUserByName(user_name);
+        System.out.println(user);
         String pwd = user.getUser_password();
         if(pwd.equals(user_password)){
             request.getSession().setAttribute("user_id",user.getUser_id());

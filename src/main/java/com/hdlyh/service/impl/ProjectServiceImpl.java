@@ -29,7 +29,17 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public void deleteProject(Integer project_id) {
+        projectMapper.deleteProject(project_id);
+    }
+
+    @Override
     public List<Project> findMyProject(int user_id) {
         return projectMapper.findMyProject(user_id);
+    }
+
+    @Override
+    public List<Project> findProjectByCondition(Project project) {
+        return projectMapper.findProjectByCondition(project);
     }
 }
