@@ -18,6 +18,9 @@ public interface ProjectMapper {
       List<Project> findAllProject();
       //添加项目
       int addProject(Project project);
+      //根据user_id查询我的项目
       @Select("select * from project where project_user_id  = #{user_id}")
       List<Project> findMyProject(int user_id);
+      //根据输入的模糊属性查询project信息
+      List<Project> findProjectByCondition(Project project);
 }

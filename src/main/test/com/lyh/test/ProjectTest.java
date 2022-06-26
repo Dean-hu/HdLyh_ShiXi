@@ -47,10 +47,25 @@ public class ProjectTest {
         Project pro = new Project();
         pro.setProject_info("this is a test bar ...");
         pro.setProject_name("test");
-        Project project =new Project("苗族古歌","田锦锋","123456",
-                "传承人信息","sdfsdfsdfsd",date,1,0,
-                null,0,null);
+        pro.setProject_owner_info("lyh is the owner");
+        pro.setProject_owner("lyh");
+        pro.setProject_tel("123123123");
+        pro.setProject_apply_time(date);
+        pro.setProject_user_id(1001);
         projectMapper.addProject(pro);
+    }
+    @Test
+    public void findProjectByCondition(){
+        /*String proInfo = "吃";*/
+        int check1 = 0;
+        Project pro = new Project();
+/*        proInfo = "%"+proInfo+"%";
+        pro.setProject_info(proInfo);*/
+        pro.setProject_check1(check1);
+        List<Project> pros = projectMapper.findProjectByCondition(pro);
+        for(Project p : pros){
+            System.out.println(p);
+        }
     }
 
 }

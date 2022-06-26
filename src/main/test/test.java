@@ -39,7 +39,7 @@ public class test {
         System.out.println(userService.findUserByName("zhangsan"));
     }
     /*添加项目测试*/
-    @Test
+/*    @Test
     public void addProject(){
         Date date = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
@@ -47,7 +47,7 @@ public class test {
         Project project =new Project("苗族古歌","田锦锋","123456","传承人信息",
                 "sdfsdfsdfsd",date,1,0,null,0,null);
         projectService.addProject(project);
-    }
+    }*/
       @Test
     public void json(){
         List<Project> allProject = projectService.findAllProject();
