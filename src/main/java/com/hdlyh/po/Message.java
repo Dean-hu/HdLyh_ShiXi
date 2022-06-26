@@ -13,6 +13,24 @@ public class Message {
     private String message_response;
     private Date message_responsetime;
     private String message_content;
+    private String user_name;
+    private String project_name;
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getProject_name() {
+        return project_name;
+    }
+
+    public void setProject_name(String project_name) {
+        this.project_name = project_name;
+    }
 
     @Override
     public String toString() {
@@ -26,6 +44,8 @@ public class Message {
                 ", message_response='" + message_response + '\'' +
                 ", message_responsetime=" + message_responsetime +
                 ", message_content='" + message_content + '\'' +
+                ", user_name='" + user_name + '\'' +
+                ", project_name='" + project_name + '\'' +
                 '}';
     }
 

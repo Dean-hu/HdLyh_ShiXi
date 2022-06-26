@@ -1,7 +1,9 @@
+import com.hdlyh.controller.MessageController;
 import com.hdlyh.mapper.ProjectMapper;
 import com.hdlyh.mapper.UserMapper;
 import com.hdlyh.po.Project;
 import com.hdlyh.po.User;
+import com.hdlyh.service.MessageService;
 import com.hdlyh.service.ProjectService;
 import com.hdlyh.service.UserService;
 import com.hdlyh.tools.json;
@@ -12,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -23,6 +26,8 @@ public class test {
     UserService userService;
    @Autowired
     ProjectService projectService;
+    @Autowired
+    MessageService messageService;
     @Test
     public void testCreateUser(){
         User user =new User("zhangsan","123456",1);
@@ -54,5 +59,8 @@ public class test {
         json<Project> j = new json<>();
         System.out.println(j.tojson(allProject));
     }
-
+    @Test
+    public void MyMessage(){
+        System.out.println(messageService.findMyMessage(1));
+    }
 }

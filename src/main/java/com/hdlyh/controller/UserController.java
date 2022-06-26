@@ -47,7 +47,7 @@ public class UserController {
         String pwd = user.getUser_password();
         if(pwd.equals(user_password)){
             request.getSession().setAttribute("user_id",user.getUser_id());
-            response.sendRedirect("./pages/myProject.jsp");
+            response.sendRedirect("./pages/MyMenu.jsp");
         }
         else{
             request.getSession().setAttribute("msg","用户名或密码错误");
