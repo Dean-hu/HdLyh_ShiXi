@@ -29,7 +29,6 @@
         <label class="layui-form-label required">项目名</label>
         <div class="layui-input-block">
             <input type="text" name="project_name" lay-verify="required" lay-reqtext="项目名不能为空" placeholder="请输入项目名" value="" class="layui-input">
-            <tip>填写自己项目名称</tip>
         </div>
     </div>
 <%--    <div class="layui-form-item">
@@ -59,7 +58,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label required">传承人手机号</label>
         <div class="layui-input-block">
-            <input type="text" name="phone" lay-verify="required" lay-reqtext="传承人手机号不能为空" placeholder="请输入传承人手机号" value="" class="layui-input">
+            <input type="text" name="project_tel" lay-verify="required" lay-reqtext="传承人手机号不能为空" placeholder="请输入传承人手机号" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">

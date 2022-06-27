@@ -44,7 +44,7 @@
         table.render({
             elem: '#currentTableId',
             url: '../findMyProject.action',
-            toolbar: null,
+            toolbar: "#toolbarDemo",
             cols: [[
                 {type: "checkbox", width: 50},
                 {field: 'project_id', width: 100, title: 'ID', sort: true},
@@ -73,7 +73,7 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '../pages/add.jsp',
+                    content: '../pages/add_project.jsp',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -106,11 +106,6 @@
                     layer.full(index);
                 });
                 return false;
-            } else if (obj.event === 'delete') {
-                layer.confirm('真的删除行么', function (index) {
-                    obj.del();
-                    layer.close(index);
-                });
             }
         });
 
