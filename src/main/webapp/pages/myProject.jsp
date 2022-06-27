@@ -67,7 +67,7 @@
         table.on('toolbar(currentTableFilter)', function (obj) {
             if (obj.event === 'add') {  // 监听添加操作
                 var index = layer.open({
-                    title: '添加新的项目',
+                    title: null,
                     type: 2,
                     shade: 0.2,
                     maxmin:true,
