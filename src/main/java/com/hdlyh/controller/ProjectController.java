@@ -50,4 +50,12 @@ public class ProjectController {
        response.sendRedirect("./pages/myProject.jsp");
     }
 
+    @RequestMapping("/add.action")
+    public void add(HttpServletRequest request) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("utf-8");
+
+        System.out.println(request.getParameter("phone"));
+
+    }
+
 }

@@ -24,20 +24,26 @@
 <div class="layuimini-container " style="padding-top: 200px; background: bottom; border: hidden">
     <div class="layuimini-main layui-top-box">
         <div class="layui-row " style="background:bottom; height: 200px;">
-            <div class="layui-col-md3 layui-col-md-offset3" style=" height: 200px;">
+            <div class="layui-col-md2 layui-col-md-offset3" style=" height: 200px;">
                 <a href="./myProject.jsp" class="layui-btn layui-btn-fluid" style="line-height:200px;color: red; text-align:center; height: 200px;"><h1>我的项目</h1></a>
             </div>
-            <div class="layui-col-md3"style="background: bottom;">
+            <div class="layui-col-md2"style="background: bottom;">
                 <a href="404.html" class="layui-btn layui-btn-fluid" style="line-height:200px;color: #0000FF; text-align:center; height: 200px;"><h1>查看点赞</h1></a>
+            </div>
+            <div class="layui-col-md2 " style=" height: 200px;">
+                <a href="./login.jsp" class="layui-btn layui-btn-fluid" style="line-height:200px;color: red; text-align:center; height: 200px;"><h1>退出登录</h1></a>
             </div>
         </div>
 
         <div class="layui-row " style="background:bottom; height: 200px;">
-            <div class="layui-col-md3 layui-col-md-offset3" style="background: bottom;">
+            <div class="layui-col-md2 layui-col-md-offset3" style="background: bottom;">
                 <a href="./MyMessage.jsp" class="layui-btn layui-btn-fluid" style="line-height:200px;color: darkgreen; text-align:center; height: 200px;"><h1>查看留言</h1></a>
             </div>
-            <div class="layui-col-md3"style="background:red;">
+            <div class="layui-col-md2"style="background:red;">
                 <a href="404.html" class="layui-btn layui-btn-fluid" style="line-height:200px;color: #00FFFF; text-align:center; height: 200px;"><h1>我的收藏</h1></a>
+            </div>
+            <div class="layui-col-md2"style="background:red;">
+                <a href="./visitorProject.jsp" class="layui-btn layui-btn-fluid" style="line-height:200px;color: #00FFFF; text-align:center; height: 200px;"><h1>全部项目</h1></a>
             </div>
         </div>
     </div>
