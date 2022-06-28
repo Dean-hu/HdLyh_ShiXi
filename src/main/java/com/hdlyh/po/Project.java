@@ -34,6 +34,17 @@ public class Project {
                 '}';
     }
 
+    public Project() {
+    }
+
+    public Project(String project_name, String project_owner, String project_tel, String project_owner_info, String project_info) {
+        this.project_name = project_name;
+        this.project_owner = project_owner;
+        this.project_tel = project_tel;
+        this.project_owner_info = project_owner_info;
+        this.project_info = project_info;
+    }
+
     public Integer getProject_id() {
         return project_id;
     }

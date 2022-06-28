@@ -21,17 +21,16 @@
         <script type="text/html" id="toolbarDemo">
             <div class="layui-btn-container">
                 <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
-                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"> 删除 </button>
+<%--                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"> 删除 </button>--%>
             </div>
         </script>
 
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
 
         <script type="text/html" id="currentTableBar">
-            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">
-                编辑</a>
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
         </script>
-
     </div>
 </div>
 <script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
@@ -46,7 +45,6 @@
             url: '../findMyProject.action',
             toolbar: "#toolbarDemo",
             cols: [[
-                {type: "checkbox", width: 50},
                 {field: 'project_id', width: 100, title: 'ID', sort: true},
                 {field: 'project_name', width: 100, title: '项目名'},
                 {field: 'project_owner', width: 100, title: '传承人', sort: true},
@@ -78,10 +76,6 @@
                 $(window).on("resize", function () {
                     layer.full(index);
                 });
-            } else if (obj.event === 'delete') {  // 监听删除操作
-                var checkStatus = table.checkStatus('currentTableId')
-                    , data = checkStatus.data;
-                layer.alert(JSON.stringify(data));
             }
         });
 
@@ -91,7 +85,9 @@
         });
 
         table.on('tool(currentTableFilter)', function (obj) {
-            var data = obj.data;
+            var $ = layui.jquery;
+            console.log("obj",obj);
+
             if (obj.event === 'edit') {
                 var index = layer.open({
                     title: '编辑项目',
@@ -101,11 +97,29 @@
                     shadeClose: true,
                     area: ['100%', '100%'],
                     content: '../pages/edit_project.jsp',
+                    end:function(){
+                        table.reload("currentTableId");
+                    },
+                    success:function (layero,index){
+                        var body = layer.getChildFrame('body',index);
+                        body.find("#project_name").val(obj.data.project_name);
+                        body.find("#project_info").val(obj.data.project_info);
+                        body.find("#project_owner_info").val(obj.data.project_owner_info);
+                        body.find("#project_owner").val(obj.data.project_owner);
+                        body.find("#project_tel").val(obj.data.project_tel);
+                        body.find("#project_id").val(obj.data.project_id);
+                    }
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
                 });
                 return false;
+            } else if (obj.event === 'delete') {
+                layer.confirm('真的删除行么', function (index) {
+                    $.getJSON("../delProject.action",{project_id:obj.data.project_id});
+                    obj.del();
+                    layer.close(index);
+                });
             }
         });
 

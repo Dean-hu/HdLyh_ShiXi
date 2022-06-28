@@ -28,4 +28,12 @@ public class MessageController {
         System.out.println(tojson);
         response.getWriter().write(tojson);
     }
+    @RequestMapping("/delMessage.action")
+    public void delMessage(HttpServletRequest request , HttpServletResponse response) throws IOException{
+           request.setCharacterEncoding("utf-8");
+        System.out.println("sadfsdsdgfdgdfs");
+        int message_id = Integer.parseInt(request.getParameter("message_id"));
+        System.out.println(message_id);
+        messageService.delMyMessageById(message_id);
+    }
 }

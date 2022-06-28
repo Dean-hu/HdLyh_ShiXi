@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface MessageService {
      List<Message> findMyMessage(int user_id);
+
+     void delMyMessageById(int message_id);
 }

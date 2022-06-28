@@ -63,4 +63,13 @@ public class test {
     public void MyMessage(){
         System.out.println(messageService.findMyMessage(1));
     }
+
+    @Test
+    public void editProject(){
+
+        Project project = new Project();
+        project.setProject_id(1);
+        project.setProject_name("sfdsdfdsf");
+        projectService.updateProject(project);
+    }
 }

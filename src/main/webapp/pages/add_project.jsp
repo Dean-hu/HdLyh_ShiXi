@@ -80,33 +80,17 @@
         //监听提交
         form.on('submit(saveBtn)', function (data) {
             console.log(data.field);
-            $.post("../add.action", data.field, function (d) {
+            $.post("../addProject.action", data.field, function (d) {
                 console.log("---->" + d);
             }, "json");
-/*            data = data.field;
-            if (data.project_name == '') {
-                layer.msg('项目名不能为空');
-                return false;
-                project_info
-            }
-            if (data.project_info == '') {
-                layer.msg('项目信息不能为空');
-                return false;
-            }
-            if (data.project_owner == '') {
-                layer.msg('传承人姓名不能为空');
-                return false;
-            }
-            if (data.project_owner == '') {
-                layer.msg('传承人信息不能为空');
-                return false;
-            }
-            if (data.project_tel == '') {
-                layer.msg('传承人电话不能为空');
-                return false;
-            }*/
-            layer.msg('申请信息已提交，等待审批', function () {
-                window.location = './myProject.jsp';
+            var index = layer.alert(JSON.stringify(data.field), {
+                title: '最终提交的信息'
+            }, function (data) {
+                // 关闭弹出层
+                layer.close(index);
+
+                var iframeIndex = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(iframeIndex);
             });
             return false;
         });

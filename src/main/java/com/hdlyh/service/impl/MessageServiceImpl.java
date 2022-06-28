@@ -17,4 +17,9 @@ public class MessageServiceImpl implements MessageService {
         return messageMapper.findMyMessage( user_id);
     }
 
+    @Override
+    public void delMyMessageById(int message_id) {
+          messageMapper.delMyMessageById(message_id);
+    }
+
 }

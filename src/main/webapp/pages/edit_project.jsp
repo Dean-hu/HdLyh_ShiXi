@@ -25,40 +25,47 @@
 <body>
 <div class="layui-form layuimini-form">
 
+
+
+    <div class="layui-form-item">
+
+        <div class="layui-input-block">
+            <input id ="project_id"type="hidden" name="project_id" lay-verify="required" lay-reqtext="项目名不能为空" placeholder="请输入项目名" value="" class="layui-input">
+        </div>
+    </div>
+
+
+
+
     <div class="layui-form-item">
         <label class="layui-form-label required">项目名</label>
         <div class="layui-input-block">
-            <input type="text" name="project_name" lay-verify="required" lay-reqtext="项目名不能为空" placeholder="请输入项目名" value="" class="layui-input">
+            <input id ="project_name"type="text" name="project_name" lay-verify="required" lay-reqtext="项目名不能为空" placeholder="请输入项目名" value="" class="layui-input">
         </div>
     </div>
-<%--    <div class="layui-form-item">
-        <label class="layui-form-label required">项目信息</label>
-        <div class="layui-input-block">
-            <input type="text" name="project_info" lay-verify="required" lay-reqtext="项目信息不能为空" placeholder="请输入项目信息" value="" class="layui-input">
-        </div>
-    </div>--%>
+
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">项目信息</label>
         <div class="layui-input-block">
-            <textarea name="project_info" lay-verify="required" class="layui-textarea" placeholder="请输入项目信息"></textarea>
+            <textarea id="project_info" name="project_info" lay-verify="required" class="layui-textarea" placeholder="请输入项目信息"></textarea>
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">传承人姓名</label>
         <div class="layui-input-block">
-            <input type="text" name="project_owner" lay-verify="required" lay-reqtext="传承人姓名不能为空" placeholder="请输入传承人姓名" value="" class="layui-input">
+            <input id="project_owner" type="text" name="project_owner" lay-verify="required" lay-reqtext="传承人姓名不能为空" placeholder="请输入传承人姓名" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">传承人信息</label>
         <div class="layui-input-block">
-            <input type="text" name="project_owner_info" lay-verify="required" placeholder="请输入传承人信息" value="" class="layui-input">
+            <input id="project_owner_info" type="text" name="project_owner_info" lay-verify="required" placeholder="请输入传承人信息" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">传承人手机号</label>
         <div class="layui-input-block">
-            <input type="text" name="project_tel" lay-verify="required" lay-reqtext="传承人手机号不能为空" placeholder="请输入传承人手机号" value="" class="layui-input">
+            <input id="project_tel" type="text" name="project_tel" lay-verify="required" lay-reqtext="传承人手机号不能为空" placeholder="请输入传承人手机号" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -77,6 +84,11 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
+            console.log("data",data.field);
+            $.post("../editProject.action", data.field, function (d) {
+                console.log("---->" + d);
+            }, "json");
+
             var index = layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
             }, function () {
