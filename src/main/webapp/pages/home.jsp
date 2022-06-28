@@ -12,8 +12,6 @@
 </head>
 <body background="../images/home_background.jpg">
 <div>
-
-
     <a href="./pages/register.jsp" id="userRegister">注册</a>
 </div>
 <div>
