@@ -38,6 +38,7 @@
     <insert id="addProject" useGeneratedKeys="true" keyProperty="project_id">
         insert into project (<include refid="key"/>) values (<include refid="value"/>)
     </insert>
+
     <!--    多条件的动态SQL查询-->
     <select id="findProjectByCondition" resultType="com.hdlyh.po.Project">
         select * from project
@@ -62,6 +63,39 @@
             </if>
         </where>
     </select>
+    <update id="updateProject">
+        update project
+        <set>
+            <if test="project_name!=null and project_name!=''">
+                project_name = #{project_name},
+            </if>
 
+            <if test="project_info!=null and project_info!=''">
+                project_info = #{project_info},
+            </if>
+            <if test="project_owner!=null and project_owner!=''">
+                project_owner = #{project_owner},
+            </if>
+            <if test="project_owner_info!=null and project_owner_info!=''">
+                project_owner = #{project_owner},
+            </if>
+            <if test="project_tel!=null and project_tel!=''">
+                project_tel = #{project_tel},
+            </if>
+            <if test="project_check_time1!=null">
+                project_check_time1 = #{project_check_time1},
+            </if>
+            <if test="project_check_time2!=null">
+                project_check_time2 = #{project_check_time2},
+            </if>
+            <if test="project_check1!=null">
+                project_check1 = #{project_check1},
+            </if>
+            <if test="project_check2!=null">
+                project_check2 = #{project_check2}
+            </if>
+        </set>
+        where  project_id = #{project_id};
+    </update>
 
 </mapper>

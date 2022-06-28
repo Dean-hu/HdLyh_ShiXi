@@ -20,4 +20,6 @@ public interface ProjectService {
     int addProject(Project project);
     //删除项目
     void deleteProject(Integer project_id);
+    //更新项目
+    void updateProject(Project peoject);
 }

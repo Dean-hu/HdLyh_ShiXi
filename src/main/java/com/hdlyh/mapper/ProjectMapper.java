@@ -27,4 +27,6 @@ public interface ProjectMapper {
       //删除项目
       @Delete("delete from project where project_id = #{project_id}")
       void deleteProject(Integer project_id);
+      //更新项目
+      void updateProject(Project peoject);
 }

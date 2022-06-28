@@ -42,4 +42,8 @@ public class ProjectServiceImpl implements ProjectService {
     public List<Project> findProjectByCondition(Project project) {
         return projectMapper.findProjectByCondition(project);
     }
+    @Override
+    public void updateProject(Project project) {
+        projectMapper.updateProject(project);
+    }
 }
